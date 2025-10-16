@@ -2,11 +2,16 @@
 
 _The only production pipeline where “turning it off and on again” actually wins the game._ 🦝
 
-[![CI](https://github.com/NickTheDevOpsGuy/ToggleTheDarkness/actions/workflows/ToggleTheDarkness-ci.yml/badge.svg)](https://github.com/NickTheDevOpsGuy/ToggleTheDarkness/actions/workflows/ToggleTheDarkness-ci.yml) ![Last Commit](https://img.shields.io/github/last-commit/NickTheDevOpsGuy/ToggleTheDarkness) ![Contributions welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)
+![CI](https://img.shields.io/badge/CI-(Prettier%20·%20ESLint%20·%20TSC)-blue?style=flat)
+![Status](https://img.shields.io/badge/status-no_status-lightgrey?style=flat)
 
-<br />
+![Built with React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?logo=tailwindcss&logoColor=white)
 
-![Built with React](https://img.shields.io/badge/Built%20with-React-61dafb?logo=react&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38bdf8?logo=tailwind-css&logoColor=white) ![License](https://img.shields.io/github/license/NickTheDevOpsGuy/ToggleTheDarkness)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Last commit](https://img.shields.io/github/last-commit/NickTheDevOpsGuy/ToggleTheDarkness)
+![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)
 
 ---
 
