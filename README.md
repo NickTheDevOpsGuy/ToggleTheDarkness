@@ -1,6 +1,6 @@
-# 🌌 ToggleTheDarkness
+# ⚫ ToggleTheDarkness
 
-_Short tagline about what this project does_ 🦝
+_The only production pipeline where “turning it off and on again” actually wins the game._ 🦝
 
 [![CI](https://github.com/NickTheDevOpsGuy/ToggleTheDarkness/actions/workflows/ci-file.yml/badge.svg)](https://github.com/NickTheDevOpsGuy/ToggleTheDarkness/actions/workflows/ci-file.yml)
 ![Built with React](https://img.shields.io/badge/Built%20with-React-61dafb?logo=react&logoColor=white)
