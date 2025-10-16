@@ -9,7 +9,6 @@ _The only production pipeline where “turning it off and on again” actually w
 ![Built with React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?logo=tailwindcss&logoColor=white)
-
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)
 
