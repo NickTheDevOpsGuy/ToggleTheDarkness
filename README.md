@@ -2,7 +2,7 @@
 
 _The only production pipeline where “turning it off and on again” actually wins the game._ 🦝
 
-[![CI](https://github.com/NickTheDevOpsGuy/ToggleTheDarkness/actions/workflows/ci-file.yml/badge.svg)](https://github.com/NickTheDevOpsGuy/ToggleTheDarkness/actions/workflows/ci-file.yml)
+[![CI](https://github.com/NickTheDevOpsGuy/ToggleTheDarkness/actions/workflows/ToggleTheDarkness-ci.yml/badge.svg)](https://github.com/NickTheDevOpsGuy/ToggleTheDarkness/actions/workflows/ToggleTheDarkness-ci.yml)
 ![Built with React](https://img.shields.io/badge/Built%20with-React-61dafb?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38bdf8?logo=tailwind-css&logoColor=white)
