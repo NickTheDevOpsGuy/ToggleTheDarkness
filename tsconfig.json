@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/app/*"],
+      "@components/*": ["src/app/components/*"],
+      "@hooks/*": ["src/app/hooks/*"],
+      "@lib/*": ["src/app/lib/*"],
+      "@types/*": ["src/app/types/*"]
+    }
+  },
+  "include": ["src", "src/types"],
+  "exclude": ["vite.config.ts"]
+}
