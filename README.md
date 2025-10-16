@@ -82,17 +82,49 @@ This app is designed for **local use only** — all processing happens in your b
 
 ```plaintext
 .
-├── .github/
-│   └── workflows/
-├── public/assets/
-│   ├── preview.gif
-│   └── feature.gif
-├── src/
-│   ├── app/
-│   ├── components/
-│   └── utils/
+├── .github
+│   ├── ISSUE_TEMPLATE
+│   │   ├── bug.yml
+│   │   ├── config.yml
+│   │   ├── documentation.yml
+│   │   ├── enhancement_refactor.yml
+│   │   ├── feature_request.yml
+│   │   └── question_discussion.yml
+│   ├── pull_request_template.md
+│   └── workflows
+│       └── ToggleTheDarkness-ci.yml
+├── .gitignore
+├── .husky
+│   ├── pre-commit
+│   └── pre-push
+├── .prettierignore
+├── .prettierrc
+├── .prettierrc.json
+├── .prettierrc.yml
+├── .stylelintrc.json
+├── CONTRIBUTORS.md
+├── eslint.config.js
+├── index.html
+├── LICENSE
+├── package-lock.json
 ├── package.json
-└── README.md
+├── README.md
+├── scripts
+│   └── precheck.sh
+├── src
+│   └── app
+│       ├── App.tsx
+│       ├── components
+│       │   ├── Board.tsx
+│       │   └── Cell.tsx
+│       ├── hooks
+│       │   └── useLightsOut.ts
+│       ├── lib
+│       │   └── game.ts
+│       └── main.tsx
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 ```
 </details>
 

@@ -1,5 +1,5 @@
 # .github/workflows/linkmap-ci.yml
-name: 🐍 ToggleTheDarkness — CI (Prettier · ESLint · TSC)
+name: ⚫ ToggleTheDarkness — CI (Prettier · ESLint · TSC)
 
 on:
   pull_request:
