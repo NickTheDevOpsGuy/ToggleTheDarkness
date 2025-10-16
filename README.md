@@ -4,13 +4,13 @@ _The only production pipeline where “turning it off and on again” actually w
 
 ![CI](https://img.shields.io/badge/CI-(Prettier%20·%20ESLint%20·%20TSC)-blue?style=flat)
 ![Status](https://img.shields.io/badge/status-no_status-lightgrey?style=flat)
+![Last commit](https://img.shields.io/github/last-commit/NickTheDevOpsGuy/ToggleTheDarkness)
 
 ![Built with React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?logo=tailwindcss&logoColor=white)
 
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Last commit](https://img.shields.io/github/last-commit/NickTheDevOpsGuy/ToggleTheDarkness)
 ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)
 
 ---
