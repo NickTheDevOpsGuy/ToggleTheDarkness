@@ -1,1 +1,97 @@
-@import 'tailwindcss';
+/* --- Tailwind v4 --- */
+@import "tailwindcss";
+
+/* --- Neon title styles --- */
+.neon {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em; /* base tracking */
+  line-height: 1;
+}
+
+/* Warm orange "TOGGLE" (foreground / brighter) */
+.neon-orange {
+  color: #ff8a00;
+  text-shadow:
+    0 0 6px #ff8a00,
+    0 0 12px #ff8a00,
+    0 0 24px #ff8a00,
+    0 0 48px #ff8a00;
+}
+
+/* Cooler/darker cyan "THE DARKNESS" (recedes a bit) */
+.neon-cyan {
+  color: #00d4ff; /* a touch darker than pure cyan */
+  text-shadow:
+    0 0 3px #00d4ff,
+    0 0 6px #00d4ff,
+    0 0 16px #007a99,
+    /* deeper inner glow */ 0 0 32px #005566; /* deeper outer glow */
+  letter-spacing: 0.08em; /* slightly tighter to balance glow width */
+}
+
+/* Optional: tiny optical nudge when placed next to the orange word.
+   In JSX you can add class "-ml-1 md:-ml-2" to the cyan <span>.
+   (Kept in CSS here if you prefer a class instead of Tailwind utility.) */
+.neon-cyan-nudge {
+  margin-left: -0.125rem; /* -ml-0.5; adjust to taste */
+}
+
+/* Subtle neon flicker (slow pulse, not blinky) */
+@keyframes neon-flicker {
+  0%,
+  95%,
+  100% {
+    opacity: 1;
+  }
+  96%,
+  98% {
+    opacity: 0.8;
+  }
+  97%,
+  99% {
+    opacity: 0.92;
+  }
+}
+.neon-flicker {
+  animation: neon-flicker 8s infinite;
+}
+
+/* Optional: warm-up effect (start dim, brighten in) */
+@keyframes glow-on {
+  0% {
+    opacity: 0.35;
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(1px);
+  }
+}
+.neon-warmup {
+  animation: glow-on 2s ease-in-out 0.8s both;
+}
+
+/* --- Board panel glow (optional, if you liked the bound look) --- */
+.board-panel {
+  position: relative;
+  border-radius: 1rem;
+  background: #16181d;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.45);
+  padding: 1rem;
+}
+.board-panel::before {
+  content: "";
+  position: absolute;
+  inset: -1.5rem;
+  border-radius: 1.25rem;
+  pointer-events: none;
+  filter: blur(28px);
+  opacity: 0.5;
+  background: radial-gradient(
+    40% 40% at 40% 40%,
+    #00e5ff33,
+    #ff8a0033 60%,
+    transparent 70%
+  );
+}

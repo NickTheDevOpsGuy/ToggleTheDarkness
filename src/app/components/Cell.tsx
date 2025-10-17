@@ -1,32 +1,26 @@
-import type { flip } from '@/lib/game';
-
 type Props = {
-  active: number;
+  active: number; // 0 or 1
   row: number;
   col: number;
   onClick: (row: number, col: number) => void;
 };
 
 export function Cell({ active, row, col, onClick }: Props) {
-  const base =
-    'h-14 w-14 rounded-md border border-zinc-700 transition-colors ' +
-    'focus:outline-none focus:ring-2 focus:ring-cyan-500';
-  const on = 'bg-yellow-400 shadow-md shadow-yellow-400/40';
-  const off = 'bg-zinc-900 hover:bg-zinc-800';
+  const handleClick = () => onClick(row, col);
 
-  const handleClick = () => {
-    onClick(row, col); // tell Board which cell was clicked
-    console.log(`Clicked on row ${row}, col ${col}`);
-  };
+  const base =
+    "h-14 w-14 rounded-lg border transition-colors focus:outline-none " +
+    "focus:ring-2 focus:ring-cyan-500 flex items-center justify-center select-none " +
+    "border-zinc-800";
+  const onClasses = "bg-yellow-400 shadow shadow-yellow-400/30";
+  const offClasses = "bg-zinc-900 hover:bg-zinc-800";
 
   return (
     <button
-      type='button'
+      type="button"
       onClick={handleClick}
-      className={`${base} ${active ? on : off}`}
-      aria-label={`cell ${row},${col}`}
-    >
-      {/* maybe a span or empty space here */}
-    </button>
+      className={`${base} ${active ? onClasses : offClasses}`}
+      aria-label={`cell ${row + 1},${col + 1}`}
+    />
   );
 }
