@@ -1,22 +1,39 @@
-const ROWS = 5,
-  COLS = 5;
-const cells = Array.from({ length: ROWS * COLS });
+import { useState } from "react";
+import { flip } from "@/lib/game";
+import { Cell } from "@/components/Cell";
+
+const ROWS = 5;
+const COLS = 5;
 
 export default function Board() {
-  return (
-    <main className='grid min-h-screen place-items-center'>
-      <div
-        className='grid gap-2'
-        style={{ gridTemplateColumns: `repeat(${COLS}, 56px)` }}
-      >
-        {cells.map((_, i) => (
-          <button
-            key={i}
-            className='h-14 w-14 rounded-md border border-zinc-700 bg-zinc-900 hover:bg-zinc-800 focus:ring-2 focus:ring-cyan-500 focus:outline-none'
-            aria-label={`cell ${i + 1}`}
-          />
-        ))}
-      </div>
-    </main>
+  const [grid, setGrid] = useState<number[][]>(
+    Array.from({ length: ROWS }, () => Array(COLS).fill(0))
   );
+
+  const handleClick = (r: number, c: number) => {
+    setGrid(prev => flip(prev, r, c));
+  };
+
+  return (
+  <main className="min-h-screen grid place-items-center bg-black">
+    <div
+      className="grid gap-4"
+      style={{
+        gridTemplateColumns: `repeat(${COLS}, 56px)`,
+      }}
+    >
+      {grid.map((row, r) =>
+        row.map((val, c) => (
+          <Cell
+            key={`${r}-${c}`}
+            active={val}
+            row={r}
+            col={c}
+            onClick={handleClick}
+          />
+        ))
+      )}
+    </div>
+  </main>
+);
 }
