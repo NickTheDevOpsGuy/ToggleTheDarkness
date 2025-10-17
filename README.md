@@ -2,7 +2,7 @@
 
 _The only production pipeline where “turning it off and on again” actually wins the game._ 🦝
 
-![CI](https://img.shields.io/badge/CI-(Prettier%20·%20ESLint%20·%20TSC)-blue?style=flat)
+![CI](<https://img.shields.io/badge/CI-(Prettier%20·%20ESLint%20·%20TSC)-blue?style=flat>)
 ![Status](https://img.shields.io/badge/status-no_status-lightgrey?style=flat)
 ![Last commit](https://img.shields.io/github/last-commit/NickTheDevOpsGuy/ToggleTheDarkness)
 
@@ -17,12 +17,14 @@ _The only production pipeline where “turning it off and on again” actually w
 ## 🖼 Preview
 
 ### Main App Demo
+
 ![App Demo GIF](./public/assets/preview.gif)
 
 ### Feature Highlights
+
 ![Feature Showcase](./public/assets/feature.gif)
 
-> 🎞️ *Previews are short animated GIFs recorded directly from the live app using screen capture — perfect for quick demos in READMEs.*
+> 🎞️ _Previews are short animated GIFs recorded directly from the live app using screen capture — perfect for quick demos in READMEs._
 
 ---
 
@@ -75,6 +77,7 @@ This app is designed for **local use only** — all processing happens in your b
    ```bash
    npm run dev
    ```
+
 ---
 
 ## 📂 Project Structure
@@ -128,6 +131,7 @@ This app is designed for **local use only** — all processing happens in your b
 ├── tsconfig.node.json
 └── vite.config.ts
 ```
+
 </details>
 
 ---
