@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo } from 'react';
 
 // Tiny WebAudio beeps (no audio files required)
 export function useBeep() {
@@ -11,7 +11,7 @@ export function useBeep() {
   const playTone = (freq: number, ms: number, gain = 0.04) => {
     const osc = ctx.createOscillator();
     const g = ctx.createGain();
-    osc.type = "sine";
+    osc.type = 'sine';
     osc.frequency.value = freq;
     g.gain.value = gain;
     osc.connect(g).connect(ctx.destination);
