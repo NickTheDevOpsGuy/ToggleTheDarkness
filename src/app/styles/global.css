@@ -1,5 +1,5 @@
 /* --- Tailwind v4 --- */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* --- Neon title styles --- */
 .neon {
@@ -81,7 +81,7 @@
   padding: 1rem;
 }
 .board-panel::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: -1.5rem;
   border-radius: 1.25rem;
