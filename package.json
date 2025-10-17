@@ -1,5 +1,5 @@
 {
-  "name": "snake",
+  "name": "togglethedarkness",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -30,18 +30,19 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
+    "axios": "^1.12.2",
     "canvas-confetti": "^1.9.3",
     "husky": "^9.1.7",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",
     "@tailwindcss/postcss": "^4.1.12",
     "@tailwindcss/vite": "^4.1.14",
     "@types/node": "^24.7.2",
-    "@types/react": "^19.1.10",
-    "@types/react-dom": "^19.1.7",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.0.4",
     "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
