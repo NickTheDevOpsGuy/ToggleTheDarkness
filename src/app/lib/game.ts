@@ -11,6 +11,6 @@ export function flip(board: number[][], r: number, c: number) {
     row.map((val, ci) => {
       const hit = dirs.some(([dr, dc]) => ri === r + dr && ci === c + dc);
       return hit ? val ^ 1 : val; // XOR to flip 0/1
-    }),
+    })
   );
 }
