@@ -57,6 +57,7 @@ _The only production pipeline where “turning it off and on again” actually w
 ---
 
 ## 💡 Learning Notes
+
 This project is where React state and prop flow finally clicked for me.
 It helped me understand how components talk to each other — who owns state, who updates it, and how props actually flow.
 Basically, this was the “React finally makes sense” project. 🦝
@@ -84,8 +85,8 @@ Basically, this was the “React finally makes sense” project. 🦝
    npm run dev
    ```
 
-4.  Click some lights. Question your life choices.
-5.  Win. Celebrate. Reset. Repeat.
+4. Click some lights. Question your life choices.
+5. Win. Celebrate. Reset. Repeat.
 
 ---
 
