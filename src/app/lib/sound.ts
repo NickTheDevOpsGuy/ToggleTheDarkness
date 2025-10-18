@@ -3,9 +3,10 @@ import { useMemo } from 'react';
 // Tiny WebAudio beeps (no audio files required)
 export function useBeep() {
   // Window with global constructors + Safari's prefixed AudioContext
-  type WinWithAudio = Window & typeof globalThis & {
-    webkitAudioContext?: typeof AudioContext;
-  };
+  type WinWithAudio = Window &
+    typeof globalThis & {
+      webkitAudioContext?: typeof AudioContext;
+    };
 
   const ctx = useMemo(() => {
     const win = window as WinWithAudio;
