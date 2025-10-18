@@ -22,7 +22,7 @@ _The only production pipeline where “turning it off and on again” actually w
 
 ### Feature Highlights
 
-![Feature Showcase](./public/assets/gamePlay.png)
+![Feature Showcase](./public/assets/gamePlay.gif)
 
 > 🎞️ _Previews are short animated GIFs recorded directly from the live app using screen capture — perfect for quick demos in READMEs._
 
