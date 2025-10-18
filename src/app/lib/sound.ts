@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
 
 // Tiny WebAudio beeps (no audio files required)
 export function useBeep() {
@@ -11,14 +11,14 @@ export function useBeep() {
   const ctx = useMemo(() => {
     const win = window as WinWithAudio;
     const AC = win.AudioContext ?? win.webkitAudioContext;
-    if (!AC) throw new Error('Web Audio API not supported in this browser.');
+    if (!AC) throw new Error("Web Audio API not supported in this browser.");
     return new AC();
   }, []);
 
   const playTone = (freq: number, ms: number, gain = 0.04) => {
     const osc = ctx.createOscillator();
     const g = ctx.createGain();
-    osc.type = 'sine';
+    osc.type = "sine";
     osc.frequency.value = freq;
     g.gain.value = gain;
     osc.connect(g).connect(ctx.destination);
