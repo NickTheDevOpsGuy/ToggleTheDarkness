@@ -2,9 +2,15 @@ import { useMemo } from 'react';
 
 // Tiny WebAudio beeps (no audio files required)
 export function useBeep() {
+  // Window with global constructors + Safari's prefixed AudioContext
+  type WinWithAudio = Window & typeof globalThis & {
+    webkitAudioContext?: typeof AudioContext;
+  };
+
   const ctx = useMemo(() => {
-    const AC =
-      (window as any).AudioContext || (window as any).webkitAudioContext;
+    const win = window as WinWithAudio;
+    const AC = win.AudioContext ?? win.webkitAudioContext;
+    if (!AC) throw new Error('Web Audio API not supported in this browser.');
     return new AC();
   }, []);
 
@@ -21,6 +27,7 @@ export function useBeep() {
   };
 
   const clickBeep = () => playTone(520, 70, 0.05);
+
   const winFanfare = () => {
     playTone(784, 120, 0.05);
     setTimeout(() => playTone(1046, 120, 0.05), 110);
