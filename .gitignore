@@ -1,3 +1,8 @@
+# ------------------------------------------------------------
+# Node / React / TypeScript / Vite project .gitignore
+# Works great on macOS
+# ------------------------------------------------------------
+
 # Node modules
 node_modules/
 
@@ -31,8 +36,9 @@ lerna-debug.log*
 *.sublime-project
 *.sublime-workspace
 
-# Windows
+# Windows system files
 Thumbs.db
+Desktop.ini
 
 # ESLint cache
 .eslintcache
@@ -43,5 +49,13 @@ Thumbs.db
 # Miscellaneous
 .nyc_output/
 
-# Mac files
+# ------------------------------------------------------------
+# macOS system files
+# ------------------------------------------------------------
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes

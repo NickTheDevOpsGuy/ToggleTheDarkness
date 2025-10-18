@@ -18,11 +18,11 @@ _The only production pipeline where “turning it off and on again” actually w
 
 ### Main App Demo
 
-![App Demo GIF](./public/assets/preview.gif)
+![App Demo GIF](./public/assets/mainApp.png)
 
 ### Feature Highlights
 
-![Feature Showcase](./public/assets/feature.gif)
+![Feature Showcase](./public/assets/gamePlay.png)
 
 > 🎞️ _Previews are short animated GIFs recorded directly from the live app using screen capture — perfect for quick demos in READMEs._
 
@@ -30,30 +30,36 @@ _The only production pipeline where “turning it off and on again” actually w
 
 ## 🚀 Features
 
-- List your main features here
-- Another feature or capability
-- Something unique to highlight
-
----
-
-## 🔒 Privacy
-
-This app is designed for **local use only** — all processing happens in your browser.
+- 🕹️ 3×3, 5×5, or 7×7 boards (difficulty selector)
+- 🎉 Win detection & banner
+- 🔁 Reset + randomize
+- 💡 Optional sound & move counter
+- 🧠 Surprisingly therapeutic to play in dark mode
 
 ---
 
 ## 🗓️ Roadmap
 
-- [ ] Upcoming feature or improvement
-- [ ] Future idea or enhancement
+- Achievement tracker
+- Darkwave mode 🌊
+- Shareable puzzle URLs
+- Stats & streaks
+- Hint system
 
 ---
 
 ## 🛠 Tech Stack
 
-- React + Vite
-- TypeScript
-- TailwindCSS v4
+- ⚛️ React + TypeScript
+- 🎨 Tailwind CSS
+- 🧠 Custom game logic (flip, randomize, win check)
+
+---
+
+## 💡 Learning Notes
+This project is where React state and prop flow finally clicked for me.
+It helped me understand how components talk to each other — who owns state, who updates it, and how props actually flow.
+Basically, this was the “React finally makes sense” project. 🦝
 
 ---
 
@@ -62,8 +68,8 @@ This app is designed for **local use only** — all processing happens in your b
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/NickTheDevOpsGuy/Project Name.git
-   cd Project Name
+   git clone https://github.com/NickTheDevOpsGuy/ToggleTheDarkness.git
+   cd cd ToggleTheDarkness
    ```
 
 2. **Install dependencies**
@@ -77,6 +83,9 @@ This app is designed for **local use only** — all processing happens in your b
    ```bash
    npm run dev
    ```
+
+4.  Click some lights. Question your life choices.
+5.  Win. Celebrate. Reset. Repeat.
 
 ---
 
