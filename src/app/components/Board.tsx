@@ -5,7 +5,11 @@ import { useBeep } from '@/lib/sound';
 
 type BoardProps = { rows: number; cols: number; startShuffled?: boolean };
 
-export default function Board({ rows, cols, startShuffled = false }: BoardProps) {
+export default function Board({
+  rows,
+  cols,
+  startShuffled = false,
+}: BoardProps) {
   const flips = Math.max(3, Math.round(rows * cols * 0.3));
 
   // Initialize grid once (conditionally shuffled)
