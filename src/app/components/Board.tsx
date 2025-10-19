@@ -1,28 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Cell } from '@/components/Cell';
 import { flip, isWin, makeEmpty, randomize } from '@/lib/game';
 import { useBeep } from '@/lib/sound';
 
-type BoardProps = { rows: number; cols: number };
+type BoardProps = { rows: number; cols: number; startShuffled?: boolean };
 
-export default function Board({ rows, cols }: BoardProps) {
-  const [grid, setGrid] = useState<number[][]>(
-    Array.from({ length: rows }, () => Array(cols).fill(1))
-  );
+export default function Board({ rows, cols, startShuffled = false }: BoardProps) {
+  const flips = Math.max(3, Math.round(rows * cols * 0.3));
+
+  // Initialize grid once (conditionally shuffled)
+  const [grid, setGrid] = useState<number[][]>(() => {
+    const allOn = Array.from({ length: rows }, () => Array(cols).fill(1));
+    return startShuffled ? randomize(allOn, flips) : allOn;
+  });
+
   const [moves, setMoves] = useState(0);
   const [hasWon, setHasWon] = useState(false);
 
   const { clickBeep, winFanfare } = useBeep();
-
-  // Randomize once on mount (StrictMode-safe)
-  const didInit = useRef(false);
-  useEffect(() => {
-    if (didInit.current) return;
-    didInit.current = true;
-    // scale flips a bit with size (roughly density ~ 30%)
-    const flips = Math.max(3, Math.round(rows * cols * 0.3));
-    setGrid((prev) => randomize(prev, flips));
-  }, [rows, cols]);
 
   const handleClick = (r: number, c: number) => {
     if (hasWon) return; // ignore after win
@@ -40,7 +35,8 @@ export default function Board({ rows, cols }: BoardProps) {
   };
 
   const resetBoard = () => {
-    setGrid(makeEmpty(rows, cols));
+    // all lights on again
+    setGrid(Array.from({ length: rows }, () => Array(cols).fill(1)));
     setHasWon(false);
     setMoves(0);
   };
