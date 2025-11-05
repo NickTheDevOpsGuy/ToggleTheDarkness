@@ -1,0 +1,77 @@
+name: PR to Discord
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  notify:
+    # Block untrusted forks from using secrets
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for Discord webhook secret
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "${DISCORD_WEBHOOK:-}" ]; then
+            echo "::notice::DISCORD_WEBHOOK secret is not set or unavailable to this run. Skipping notification."
+            exit 0
+          fi
+
+      - name: Send embed to Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          TITLE: ${{ github.event.pull_request.title }}
+          URL: ${{ github.event.pull_request.html_url }}
+          USER: ${{ github.event.pull_request.user.login }}
+          BASE: ${{ github.event.pull_request.base.ref }}
+          HEAD: ${{ github.event.pull_request.head.ref }}
+        run: |
+
+          # Simple JSON escaper for Bash (handles \, ", and newlines)
+          esc() {
+            local s=${1//\\/\\\\}
+            s=${s//\"/\\\"}
+            s=${s//$'\n'/\\n}
+            printf '%s' "$s"
+          }
+
+          TITLE_ESC=$(esc "${TITLE:-New Pull Request}")
+          URL_ESC=$(esc "${URL:-}")
+          USER_ESC=$(esc "${USER:-}")
+          BASE_ESC=$(esc "${BASE:-}")
+          HEAD_ESC=$(esc "${HEAD:-}")
+
+          # Build JSON payload safely using cat (avoids exit 1 under set -e)
+          payload=$(cat <<EOF
+          {
+            "username": "GitHub PR Bot",
+            "embeds": [
+              {
+                "title": "${TITLE_ESC}",
+                "url": "${URL_ESC}",
+                "description": "by @${USER_ESC}",
+                "fields": [
+                  { "name": "Branch", "value": "${HEAD_ESC} -> ${BASE_ESC}", "inline": true }
+                ]
+              }
+            ]
+          }
+          EOF
+          )
+
+          # Post to Discord and require 204 No Content
+          http_code=$(curl -sS -o /dev/null -w "%{http_code}" \
+            -X POST -H "Content-Type: application/json" \
+            -d "${payload}" "$DISCORD_WEBHOOK")
+
+          if [ "$http_code" -ne 204 ]; then
+            echo "::error::Discord responded with HTTP ${http_code}"
+            echo "Payload was: ${payload}"
+            exit 1
+          fi
