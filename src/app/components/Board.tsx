@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Cell } from '@/components/Cell';
-import { flip, isWin, makeEmpty, randomize } from '@/lib/game';
+import { flip, isWin, randomize } from '@/lib/game';
 import { useBeep } from '@/lib/sound';
 
 type BoardProps = { rows: number; cols: number; startShuffled?: boolean };
