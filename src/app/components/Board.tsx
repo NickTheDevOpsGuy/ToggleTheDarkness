@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Cell } from '@/components/Cell';
 import { flip, isWin, randomize } from '@/lib/game';
 import { useBeep } from '@/lib/sound';
@@ -20,6 +20,34 @@ export default function Board({
 
   const [moves, setMoves] = useState(0);
   const [hasWon, setHasWon] = useState(false);
+  const [bestMoves, setBestMoves] = useState<number | null>(null);
+
+  // Load best moves for this board size from localStorage once
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const key = `ttd-best-${rows}x${cols}`;
+    const raw = window.localStorage.getItem(key);
+    if (raw !== null) {
+      const parsed = Number.parseInt(raw, 10);
+      if (!Number.isNaN(parsed)) {
+        setBestMoves(parsed);
+      }
+    } else {
+      setBestMoves(null);
+    }
+  }, [rows, cols]);
+
+  // When the player wins, update best moves in localStorage if improved
+  useEffect(() => {
+    if (!hasWon || moves === 0 || typeof window === 'undefined') return;
+    const key = `ttd-best-${rows}x${cols}`;
+    const raw = window.localStorage.getItem(key);
+    const prevBest = raw !== null ? Number.parseInt(raw, 10) : NaN;
+    if (Number.isNaN(prevBest) || moves < prevBest) {
+      window.localStorage.setItem(key, String(moves));
+      setBestMoves(moves);
+    }
+  }, [hasWon, moves, rows, cols]);
 
   const { clickBeep, winFanfare } = useBeep();
 
@@ -59,18 +87,25 @@ export default function Board({
         <button
           type='button'
           onClick={resetBoard}
-          className='rounded-md bg-zinc-800 px-4 py-2 text-zinc-100 hover:bg-zinc-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none'
+          className='rounded-md bg-zinc-800 px-4 py-2 text-zi...bg-zinc-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none'
         >
           Reset
         </button>
         <button
           type='button'
           onClick={shuffleBoard}
-          className='rounded-md bg-zinc-800 px-4 py-2 text-zinc-100 hover:bg-zinc-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none'
+          className='rounded-md bg-zinc-800 px-4 py-2 text-zi...bg-zinc-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none'
         >
           Shuffle
         </button>
-        <span className='ml-2 text-zinc-400'>Moves: {moves}</span>
+        <div className='ml-2 text-zinc-400 text-sm md:text-base'>
+          Moves: {moves}
+          {typeof bestMoves === 'number' && (
+            <span className='ml-3 text-xs text-zinc-500 md:text-sm'>
+              Best: {bestMoves}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Grid */}
